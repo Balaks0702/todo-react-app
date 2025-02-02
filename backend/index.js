@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express"); //import
 const {connectToMongoDB} = require("./database"); //import database
 const app = express(); //instance of express called app
+app.use(express.json());
 
 const router = require("./routes"); //import todos router
 app.use("/api", router); //prefix /api to endpoints

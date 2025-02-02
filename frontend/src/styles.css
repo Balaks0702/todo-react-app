@@ -101,3 +101,21 @@
 .todo__delete:hover {
     transform: scale(1.1);
 }
+
+
+/* put at the bottom of your styles.css file */
+
+@media (max-width: 420px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .form {
+    width: 95%;
+  }
+
+  .todo {
+    width: 95%;
+    font-size: 1.2rem;
+  }
+ }

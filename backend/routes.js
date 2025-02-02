@@ -6,7 +6,7 @@ const {ObjectId} = require("mongodb");
 //POST|Create /todos
 router.post("/todos", async (req, res) => {
     const collection = getCollection();
-    const {todo} = req.body;
+    let {todo} = req.body;
 
     todo = JSON.stringify(todo);
 

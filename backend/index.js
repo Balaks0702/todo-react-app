@@ -1,12 +1,20 @@
-const express = require("express"); //import express
+require("dotenv").config(); 
+const express = require("express"); //import
+const {connectToMongoDB} = require("./database"); //import database
 const app = express(); //instance of express called app
+
 const router = require("./routes"); //import todos router
+app.use("/api", router); //prefix /api to endpoints
 
-// prefix /api to endpoints
-app.use("/api", router);
+//port
+const port = process.env.PORT || 5000;
 
-//listen to server on localhost
-const port = 3000;
-app.listen(port, () => {
-    console.log(`Server is listening on http://localhost:${port}`);
-})
+//server
+const startServer = async () => {
+    await connectToMongoDB();
+    app.listen(port, () => {
+        console.log(`Server is listening on http://localhost:${port}`);
+    });
+};
+
+startServer();
